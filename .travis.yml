@@ -26,6 +26,7 @@ before_install:
   - opam init --compiler=${OCAML_VERSION} --disable-sandboxing
   - eval $(opam env)
   - export OPAMVERBOSE=1
+  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then export PATH="/usr/bin:${PATH}"; opam install mlgmpidl; fi
 install:
   - opam update --upgrade
   - opam pin add --no-action infer .
