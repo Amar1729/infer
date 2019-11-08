@@ -10,6 +10,11 @@ addons:
   apt:
     packages:
       - libmpfr-dev
+  homebrew:
+    packages:
+      - gmp
+      - mpfr
+      - lzlib
 before_install:
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then ARCH="darwin"; else ARCH="linux"; fi
   - wget -O ${HOME}/opam https://github.com/ocaml/opam/releases/download/2.0.3/opam-2.0.3-x86_64-${ARCH}
